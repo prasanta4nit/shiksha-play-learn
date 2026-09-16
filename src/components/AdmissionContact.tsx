@@ -22,7 +22,9 @@ export default function AdmissionContact() {
             <span className="text-2xl" aria-hidden>
               📞
             </span>
-            <p className="text-xl font-bold">{school.contact.phoneDisplay}</p>
+            <p className="text-xl font-bold">
+              {school.contact.phoneDisplay} / {school.contact.phoneAltDisplay}
+            </p>
           </div>
 
           <div className="mt-6 flex flex-col items-center gap-2 text-ink-soft">

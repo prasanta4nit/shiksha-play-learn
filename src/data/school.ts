@@ -38,10 +38,13 @@ export const school = {
   },
 
   contact: {
-    // TODO: temporary contact number — replace with the school's real number before launch.
-    phoneDisplay: "+91 96434 27131",
-    phoneDial: "+919643427131",
-    whatsappNumber: "919643427131",
+    // Sourced from the school's own promotional banner.
+    phoneDisplay: "+91 70044 10918",
+    phoneDial: "+917004410918",
+    phoneAltDisplay: "+91 84348 65787",
+    phoneAltDial: "+918434865787",
+    // TODO: confirm which of the two numbers above is active on WhatsApp
+    whatsappNumber: "917004410918",
     whatsappPrefilledMessage:
       "Hello, I would like to know more about admission at Shiksha Play & Learn Pre-School.",
     // TODO: replace with the school's real email address
@@ -54,8 +57,7 @@ export const school = {
     youtube: "https://www.youtube.com/@playschooldugda",
     // TODO: add real Facebook page URL
     facebook: "",
-    // TODO: add real Instagram profile URL
-    instagram: "",
+    instagram: "https://www.instagram.com/dugdasplps",
     // TODO: add real Google Business Profile review link
     googleReviews: "",
   },

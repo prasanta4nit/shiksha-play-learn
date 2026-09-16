@@ -40,7 +40,7 @@ replaced with verified information before going live:
 
 | Field | What to update |
 |---|---|
-| `contact.phoneDisplay`, `contact.phoneDial`, `contact.whatsappNumber` | Currently set to a temporary personal number for testing — replace with the school's real published number before launch |
+| `contact.whatsappNumber` | Confirm which of the two listed phone numbers is active on WhatsApp |
 | `contact.email` | Currently guessed as `info@shikshapreschool.in` from the real domain — confirm the actual inbox |
 | `location.postalCode` | Add the exact PIN code |
 | `social.facebook`, `social.instagram`, `social.googleReviews` | Add once these profiles exist/are confirmed |

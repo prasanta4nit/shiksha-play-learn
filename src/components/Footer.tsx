@@ -57,7 +57,9 @@ export default function Footer() {
             ) : null}
           </div>
           <div className="mt-6 space-y-1 text-sm text-white/60">
-            <p>{school.contact.phoneDisplay}</p>
+            <p>
+              {school.contact.phoneDisplay} / {school.contact.phoneAltDisplay}
+            </p>
             <p>{school.contact.email}</p>
           </div>
         </div>

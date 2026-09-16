@@ -19,7 +19,10 @@ export default function ContactSection() {
 
             <ul className="mt-6 space-y-4 text-sm text-ink-soft">
               <ContactRow icon="📍" label={school.location.fullAddress} />
-              <ContactRow icon="📞" label={school.contact.phoneDisplay} />
+              <ContactRow
+                icon="📞"
+                label={`${school.contact.phoneDisplay} / ${school.contact.phoneAltDisplay}`}
+              />
               <ContactRow icon="📱" label={`WhatsApp: ${school.contact.phoneDisplay}`} />
               <ContactRow icon="✉️" label={school.contact.email} />
               <ContactRow icon="🕘" label={school.contact.timings} />
