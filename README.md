@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Shiksha Play & Learn Pre-School — Website
 
-## Getting Started
+A modern, colorful, premium website for **Shiksha Play & Learn Pre-School**
+(Dugda, Bokaro, Jharkhand), built with **Next.js (App Router) + TypeScript +
+Tailwind CSS v4**.
 
-First, run the development server:
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build   # production build
+npm run lint    # ESLint
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Real content already wired in
 
-## Learn More
+The school's real logo (`public/images/logo.jpg`) and real event photography
+(`public/images/photos/`) are already in place, sourced from photos supplied
+directly for this project. The phone numbers, address and website domain in
+`src/data/school.ts` come from the school's own promotional banner (visible
+in `public/images/photos/teachers-day-group-1.jpg`) and are treated as
+verified — not placeholders.
 
-To learn more about Next.js, take a look at the following resources:
+**One exception:** `public/images/photos/hero-illustration.png` (used in the
+Hero section) is an AI-generated image, not a real photo — it depicts a
+generic classroom, staff and a different logo/tagline than the school's
+actual branding. It's used purely as stylized decorative art. If genuine hero
+photography becomes available, prefer swapping it in — see `Hero.tsx`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Before launch — content still to confirm
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+A few values in `src/data/school.ts` are still placeholders and **must** be
+replaced with verified information before going live:
 
-## Deploy on Vercel
+| Field | What to update |
+|---|---|
+| `contact.email` | Currently guessed as `info@shikshapreschool.in` from the real domain — confirm the actual inbox |
+| `contact.whatsappNumber` | Confirm which of the two listed phone numbers is active on WhatsApp |
+| `location.postalCode`, `location.geo` | Add the exact PIN code and map coordinates for a pinpoint-accurate map |
+| `social.facebook`, `social.instagram`, `social.googleReviews` | Add once these profiles exist/are confirmed |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Other files to review:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| File | What to update |
+|---|---|
+| `src/data/testimonials.ts` | Replace placeholder testimonials with real, consented parent reviews (`isPlaceholder: false`) |
+| `src/data/events.ts` | Confirm event dates each year (several are marked "TBA") |
+| `src/data/facilities.ts` | Remove any facility that doesn't actually exist at the school |
+| `src/data/youtube.ts` | Add real video IDs from the school's channel once selected |
+| `src/app/layout.tsx` | Replace the Open Graph image with a dedicated 1200×630 banner once designed (currently reuses a real event photo) |
+
+### Adding real photos
+
+Photo slots (hero, about, activities, events, gallery) render a pastel
+placeholder with a "Real school photo coming soon" label until a real photo
+is supplied. To add one, drop the image under `public/images/...` and set
+the corresponding `image`/`src` field in the relevant `src/data/*.ts` file
+(e.g. `activities.ts`, `events.ts`, `gallery.ts`) or pass `src` directly to a
+`<PhotoPlaceholder>` usage in a component. `next/image` handles
+optimization, responsive sizing and WebP/AVIF automatically.
+
+## Architecture
+
+- `src/data/` — all school content (info, programs, activities, facilities,
+  events, testimonials, gallery) as typed config.
+- `src/components/` — one component per section (`Hero`, `Programs`,
+  `Gallery`, `AdmissionForm`, etc.) plus shared UI primitives in
+  `src/components/ui/`.
+- `src/app/page.tsx` — composes all sections into the single-page site.
+- `src/app/api/enquiry/route.ts` — admission enquiry form endpoint
+  (currently logs submissions server-side; wire it to email/CRM/a database
+  before launch).
+
+## SEO
+
+Metadata, Open Graph tags, and `EducationalOrganization`/`LocalBusiness`
+JSON-LD structured data are defined in `src/app/layout.tsx`, sourced from
+`src/data/school.ts`. `src/app/sitemap.ts` and `src/app/robots.ts` generate
+`sitemap.xml` and `robots.txt`. Update the placeholder production domain in
+`layout.tsx`, `sitemap.ts` and `robots.ts` once the site has a real domain.
