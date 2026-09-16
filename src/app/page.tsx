@@ -11,7 +11,7 @@ import Gallery from "@/components/Gallery";
 import YouTubeSection from "@/components/YouTubeSection";
 import Testimonials from "@/components/Testimonials";
 import AdmissionCTA from "@/components/AdmissionCTA";
-import AdmissionForm from "@/components/AdmissionForm";
+import AdmissionContact from "@/components/AdmissionContact";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
@@ -32,7 +32,7 @@ export default function Home() {
         <YouTubeSection />
         <Testimonials />
         <AdmissionCTA />
-        <AdmissionForm />
+        <AdmissionContact />
         <ContactSection />
       </main>
       <Footer />

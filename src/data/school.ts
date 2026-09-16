@@ -26,16 +26,15 @@ export const school = {
     fullAddress: "Budhidih, Roadside, Near BCCL Colony, Dugda, Bokaro, Jharkhand",
     // TODO: replace with verified PIN code
     postalCode: "",
-    // TODO: replace with exact coordinates (currently an approximate Dugda, Bokaro location) for pinpoint map + local SEO schema accuracy
+    // Exact coordinates from the school's verified Google Maps place listing.
     geo: {
-      latitude: 23.8103,
-      longitude: 86.1614,
+      latitude: 23.7458578,
+      longitude: 86.1508101,
     },
-    // TODO: replace with a precise Google Maps embed/place link once the exact pin is confirmed
     googleMapsEmbedUrl:
-      "https://www.google.com/maps?q=Budhidih,+Near+BCCL+Colony,+Dugda,+Bokaro,+Jharkhand&output=embed",
-    googleMapsDirectionsUrl:
-      "https://www.google.com/maps/dir/?api=1&destination=Budhidih,+Near+BCCL+Colony,+Dugda,+Bokaro,+Jharkhand",
+      "https://www.google.com/maps?q=23.7458578,86.1508101&z=17&output=embed",
+    // The school's own Google Maps place link (verified).
+    googleMapsDirectionsUrl: "https://maps.app.goo.gl/5Rk7WSNU6Lbkvy4K9",
   },
 
   contact: {

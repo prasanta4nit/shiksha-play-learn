@@ -40,9 +40,9 @@ replaced with verified information before going live:
 
 | Field | What to update |
 |---|---|
+| `contact.phoneDisplay`, `contact.phoneDial`, `contact.whatsappNumber` | Currently set to a temporary personal number for testing — replace with the school's real published number before launch |
 | `contact.email` | Currently guessed as `info@shikshapreschool.in` from the real domain — confirm the actual inbox |
-| `contact.whatsappNumber` | Confirm which of the two listed phone numbers is active on WhatsApp |
-| `location.postalCode`, `location.geo` | Add the exact PIN code and map coordinates for a pinpoint-accurate map |
+| `location.postalCode` | Add the exact PIN code |
 | `social.facebook`, `social.instagram`, `social.googleReviews` | Add once these profiles exist/are confirmed |
 
 Other files to review:
@@ -70,12 +70,17 @@ optimization, responsive sizing and WebP/AVIF automatically.
 - `src/data/` — all school content (info, programs, activities, facilities,
   events, testimonials, gallery) as typed config.
 - `src/components/` — one component per section (`Hero`, `Programs`,
-  `Gallery`, `AdmissionForm`, etc.) plus shared UI primitives in
+  `Gallery`, `AdmissionContact`, etc.) plus shared UI primitives in
   `src/components/ui/`.
 - `src/app/page.tsx` — composes all sections into the single-page site.
-- `src/app/api/enquiry/route.ts` — admission enquiry form endpoint
-  (currently logs submissions server-side; wire it to email/CRM/a database
-  before launch).
+
+There is intentionally no admission enquiry form or backend right now —
+`AdmissionContact` just shows the phone number and address with Call/WhatsApp/
+Directions buttons. A form was tried but removed since there was no backend
+to receive submissions (they would have gone nowhere). If a form is wanted
+again later, it needs a real destination (email, WhatsApp notification,
+Google Sheet, or a database) wired up at the same time — not logged to the
+server console only.
 
 ## SEO
 
