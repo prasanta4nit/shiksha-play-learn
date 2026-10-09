@@ -60,7 +60,7 @@ export default function Footer() {
             <p>
               {school.contact.phoneDisplay} / {school.contact.phoneAltDisplay}
             </p>
-            <p>{school.contact.email}</p>
+            {school.contact.email ? <p>{school.contact.email}</p> : null}
           </div>
         </div>
       </Container>

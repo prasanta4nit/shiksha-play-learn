@@ -22,8 +22,9 @@ export default function About() {
             A Happy Place to Begin Learning
           </h2>
           <p className="mt-5 text-base leading-relaxed text-ink-soft sm:text-lg">
-            At Shiksha Play &amp; Learn Pre-School, we believe children learn
-            best when they feel happy, safe and free to explore. Our approach
+            At Shiksha Play &amp; Learn Pre-School — also known as Shiksha
+            Play School, Dugda — we believe children learn best when they
+            feel happy, safe and free to explore. Our approach
             blends playful discovery with gentle guidance, giving every child
             room to grow at their own pace.
           </p>

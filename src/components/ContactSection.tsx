@@ -24,7 +24,9 @@ export default function ContactSection() {
                 label={`${school.contact.phoneDisplay} / ${school.contact.phoneAltDisplay}`}
               />
               <ContactRow icon="📱" label={`WhatsApp: ${school.contact.phoneDisplay}`} />
-              <ContactRow icon="✉️" label={school.contact.email} />
+              {school.contact.email ? (
+                <ContactRow icon="✉️" label={school.contact.email} />
+              ) : null}
               <ContactRow icon="🕘" label={school.contact.timings} />
             </ul>
 

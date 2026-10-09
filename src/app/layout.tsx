@@ -16,7 +16,7 @@ const nunito = Nunito({
   weight: ["400", "500", "600", "700", "800"],
 });
 
-const siteUrl = school.contact.website; // sourced from the school's own promotional banner
+const siteUrl = school.contact.website;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -56,41 +56,69 @@ export const metadata: Metadata = {
   icons: {
     icon: school.logo.image,
   },
+  // Google Search Console "HTML tag" verification token, set in Vercel.
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION,
+  },
 };
 
 function StructuredData() {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "EducationalOrganization",
-    name: school.name,
-    alternateName: school.shortName,
-    description: school.seo.description,
-    slogan: school.tagline,
-    logo: `${siteUrl}${school.logo.image}`,
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: school.location.area,
-      addressRegion: school.location.state,
-      addressCountry: school.location.country,
-      streetAddress: school.location.fullAddress,
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: school.location.geo.latitude,
-      longitude: school.location.geo.longitude,
-    },
-    telephone: school.contact.phoneDisplay,
-    email: school.contact.email,
-    sameAs: [school.social.youtube, school.social.facebook, school.social.instagram].filter(
-      Boolean
-    ),
-    url: siteUrl,
+    "@graph": [
+      {
+        // Tells Google which names this site goes by (shown as the site
+        // name in results and matched against brand searches).
+        "@type": "WebSite",
+        "@id": `${siteUrl}/#website`,
+        name: school.name,
+        alternateName: school.alternateNames,
+        url: siteUrl,
+        publisher: { "@id": `${siteUrl}/#school` },
+      },
+      {
+        "@type": ["Preschool", "LocalBusiness"],
+        "@id": `${siteUrl}/#school`,
+        name: school.name,
+        alternateName: school.alternateNames,
+        description: school.seo.description,
+        slogan: school.tagline,
+        logo: `${siteUrl}${school.logo.image}`,
+        image: `${siteUrl}/images/photos/teachers-day-group-1.jpg`,
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: school.location.area,
+          addressRegion: school.location.state,
+          addressCountry: school.location.country,
+          streetAddress: school.location.fullAddress,
+          postalCode: school.location.postalCode || undefined,
+        },
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: school.location.geo.latitude,
+          longitude: school.location.geo.longitude,
+        },
+        hasMap: school.location.googleBusinessProfileUrl,
+        telephone: school.contact.phoneDial,
+        email: school.contact.email || undefined,
+        openingHours: school.contact.openingHours,
+        sameAs: [
+          school.location.googleBusinessProfileUrl,
+          school.social.youtube,
+          school.social.facebook,
+          school.social.instagram,
+        ].filter(Boolean),
+        url: siteUrl,
+      },
+    ],
   };
 
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+      }}
     />
   );
 }
