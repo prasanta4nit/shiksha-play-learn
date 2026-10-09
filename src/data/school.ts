@@ -99,6 +99,9 @@ export const school = {
       "Nursery School in Dugda",
       "Kindergarten in Dugda",
     ],
+    // Google Search Console ownership token, rendered as a
+    // <meta name="google-site-verification"> tag. Public by design.
+    googleSiteVerification: "H3yI8Ql9Ia1B7cVrTaTrgsVAL2_mRigLeiQebIiNEKY",
   },
 
   founded: undefined as number | undefined, // TODO: set founding year if publicly stated

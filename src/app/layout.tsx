@@ -56,9 +56,8 @@ export const metadata: Metadata = {
   icons: {
     icon: school.logo.image,
   },
-  // Google Search Console "HTML tag" verification token, set in Vercel.
   verification: {
-    google: process.env.GOOGLE_SITE_VERIFICATION,
+    google: school.seo.googleSiteVerification,
   },
 };
 

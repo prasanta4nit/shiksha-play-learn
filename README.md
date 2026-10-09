@@ -107,9 +107,11 @@ School", so always pair the name with "Dugda, Bokaro".
 **Getting indexed** (manual steps, outside this repo):
 
 1. In [Google Search Console](https://search.google.com/search-console), add
-   a URL-prefix property for the canonical URL. Pick the "HTML tag" method,
-   copy the `content` value into a `GOOGLE_SITE_VERIFICATION` environment
-   variable in Vercel, redeploy, then click Verify.
+   a **URL-prefix** property for the canonical URL. A Domain property needs a
+   DNS TXT record, which can't be added to a `vercel.app` address. Pick the
+   "HTML tag" method. The token is already set in
+   `school.seo.googleSiteVerification`; if Search Console shows a different
+   `content` value, replace it there, redeploy, then click Verify.
 2. In Search Console, submit `sitemap.xml`. Then use URL Inspection on the
    home page and click "Request indexing".
 3. Add the site URL as the website on the school's Google Business Profile
